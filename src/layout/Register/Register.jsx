@@ -2,10 +2,23 @@ import { Link } from "react-router-dom";
 import { FaUser, FaLink } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill, RiEyeCloseFill, RiEyeFill } from "react-icons/ri";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
+import passValidate from "../../utilities/PasswordValidator";
 
 const Register = () => {
   const [openEye, setOpenEye] = useState(false);
+  const notify = (statusCode) => {
+    const errorMessage = [
+      "Successfully registered",
+      "Password must contain at least 1 uppercase letter",
+      "Password must contain at least 1 lower letter",
+      "Password must contain at least 6 characters",
+    ];
+    toast(errorMessage[statusCode]);
+  };
+
   const handleOpenEye = () => {
     setOpenEye(!openEye);
   };
@@ -17,7 +30,15 @@ const Register = () => {
     const email = form.get("email");
     const photoURL = form.get("photo");
     const password = form.get("password");
-    console.log(username, email, photoURL, password);
+
+    const passworstatus = passValidate(password);
+    if (passworstatus !== 0) {
+      notify(passworstatus);
+      return;
+    } else {
+      console.log(username, email, photoURL, password, passworstatus);
+      notify(passworstatus);
+    }
   };
 
   return (
@@ -92,6 +113,7 @@ const Register = () => {
               <button className="btn btn-primary">Register</button>
             </div>
           </form>
+          <ToastContainer />
         </div>
       </div>
     </div>

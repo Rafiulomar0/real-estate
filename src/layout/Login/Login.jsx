@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-
 import { MdEmail } from "react-icons/md";
 import { RiEyeCloseFill, RiEyeFill, RiLockPasswordFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
