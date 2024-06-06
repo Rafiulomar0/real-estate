@@ -23,7 +23,7 @@ const Login = () => {
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex flex-col">
-        <h2 className="text-4xl">Register Now</h2>
+        <h2 className="text-4xl">Login Now</h2>
         <div className="shadow-2xl bg-base-100 rounded-2xl">
           <form className="p-5 w-64 md:w-96 space-y-5" onSubmit={handleSubmit}>
             <div className="form-control">
@@ -64,7 +64,7 @@ const Login = () => {
                   to="/register"
                   className="label-text-alt link link-hover text-blue-400"
                 >
-                  Have no Account? Register
+                  Have no account? Register
                 </Link>
               </label>
             </div>
