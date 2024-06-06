@@ -1,10 +1,11 @@
 import { Outlet } from "react-router-dom";
-import Header from "./Header/Header";
+
+import NavBar from "./NavBar/NavBar";
 
 const Root = () => {
   return (
-    <div>
-      <Header></Header>
+    <div className="font-poppins">
+      <NavBar></NavBar>
       <Outlet></Outlet>
     </div>
   );
