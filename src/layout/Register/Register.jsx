@@ -4,10 +4,12 @@ import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill, RiEyeCloseFill, RiEyeFill } from "react-icons/ri";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import passValidate from "../../utilities/PasswordValidator";
+import { AuthContext } from "../../providers/AuthProviders";
 
 const Register = () => {
+  const { createUser, updateUserProfile } = useContext(AuthContext);
   const [openEye, setOpenEye] = useState(false);
   const notify = (statusCode) => {
     const errorMessage = [
@@ -23,10 +25,11 @@ const Register = () => {
     setOpenEye(!openEye);
   };
 
-  const handleSbmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
+
     const form = new FormData(e.currentTarget);
-    const username = form.get("username");
+    const displayName = form.get("username");
     const email = form.get("email");
     const photoURL = form.get("photo");
     const password = form.get("password");
@@ -35,10 +38,19 @@ const Register = () => {
     if (passworstatus !== 0) {
       notify(passworstatus);
       e.target.reset();
-      return;
     } else {
-      console.log(username, email, photoURL, password, passworstatus);
-      notify(passworstatus);
+      createUser(email, password)
+        .then((result) => {
+          console.log(result.user);
+          updateUserProfile({ displayName, photoURL })
+            .then(() => {
+              notify(passworstatus);
+            })
+            .catch((error) => notify(error));
+        })
+        .catch((error) => {
+          notify(error);
+        });
     }
   };
 
@@ -47,7 +59,7 @@ const Register = () => {
       <div className="hero-content flex flex-col">
         <h2 className="text-4xl">Register Now</h2>
         <div className="shadow-2xl bg-base-100 rounded-2xl">
-          <form className="p-5 w-64 md:w-96 space-y-5" onSubmit={handleSbmit}>
+          <form className="p-5 w-64 md:w-96 space-y-5" onSubmit={handleSubmit}>
             <div className="form-control">
               <label className="input input-bordered flex items-center gap-2">
                 <FaUser />

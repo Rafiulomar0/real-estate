@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
+import { ToastContainer, toast } from "react-toastify";
 import { MdEmail } from "react-icons/md";
 import { RiEyeCloseFill, RiEyeFill, RiLockPasswordFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProviders";
+
+const tostfy = (message) => toast(message);
 
 const Login = () => {
+  const { signIn, user } = useContext(AuthContext);
+
   const [openEye, setOpenEye] = useState(false);
 
   const handleOpenEye = () => {
@@ -16,6 +22,19 @@ const Login = () => {
     const form = new FormData(e.currentTarget);
     const email = form.get("email");
     const password = form.get("password");
+
+    // signin
+    signIn(email, password)
+      .then((result) => {
+        console.log(result.user);
+        {
+          user ? tostfy("Already login") : tostfy("Login successful");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
     console.log(email, password);
   };
 
@@ -80,6 +99,7 @@ const Login = () => {
               <button className="btn btn-primary">Login</button>
             </div>
           </form>
+          <ToastContainer />
         </div>
       </div>
     </div>
