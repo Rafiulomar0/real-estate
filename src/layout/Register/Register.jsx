@@ -34,6 +34,7 @@ const Register = () => {
     const passworstatus = passValidate(password);
     if (passworstatus !== 0) {
       notify(passworstatus);
+      e.target.reset();
       return;
     } else {
       console.log(username, email, photoURL, password, passworstatus);
