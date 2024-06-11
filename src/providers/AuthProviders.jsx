@@ -3,14 +3,17 @@ import {
   getAuth,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
   updateProfile,
+  GoogleAuthProvider,
 } from "firebase/auth";
 import PropTypes from "prop-types";
 import { createContext, useEffect, useState } from "react";
 import app from "../firebase/firebase.config";
 
 export const AuthContext = createContext(null);
+const googleProvider = new GoogleAuthProvider();
 
 const auth = getAuth(app);
 
@@ -40,6 +43,10 @@ const AuthProviders = ({ children }) => {
     return () => unSubscribe();
   }, []);
 
+  const loginWithGoogle = () => {
+    return signInWithPopup(auth, googleProvider);
+  };
+
   const authInfo = {
     user,
     createUser,
@@ -47,6 +54,7 @@ const AuthProviders = ({ children }) => {
     setUser,
     signIn,
     logOut,
+    loginWithGoogle,
   };
 
   return (

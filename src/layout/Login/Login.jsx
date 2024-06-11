@@ -9,7 +9,7 @@ import { AuthContext } from "../../providers/AuthProviders";
 const tostfy = (message) => toast(message);
 
 const Login = () => {
-  const { signIn, user } = useContext(AuthContext);
+  const { signIn, user, loginWithGoogle } = useContext(AuthContext);
 
   const [openEye, setOpenEye] = useState(false);
 
@@ -36,6 +36,22 @@ const Login = () => {
       });
 
     console.log(email, password);
+  };
+
+  const handleLoginWithGoogle = () => {
+    loginWithGoogle()
+      .then((result) => {
+        console.log(result.user);
+        {
+          user ? tostfy("Already login") : tostfy("Login successful");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  const handleLoginWithGithub = () => {
+    console.log("github login");
   };
 
   return (
@@ -88,10 +104,16 @@ const Login = () => {
             </div>
             <div className="flex gap-2 items-center">
               <h3>Login with: </h3>
-              <span className="btn btn-gost cursor-pointer">
+              <span
+                className="btn btn-gost cursor-pointer"
+                onClick={handleLoginWithGoogle}
+              >
                 <FaGoogle className="text-xl" />
               </span>
-              <span className="btn btn-gost cursor-pointer">
+              <span
+                className="btn btn-gost cursor-pointer"
+                onClick={handleLoginWithGithub}
+              >
                 <FaGithub className="text-xl" />
               </span>
             </div>
