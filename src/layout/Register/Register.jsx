@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaUser, FaLink } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill, RiEyeCloseFill, RiEyeFill } from "react-icons/ri";
@@ -9,6 +9,7 @@ import passValidate from "../../utilities/PasswordValidator";
 import { AuthContext } from "../../providers/AuthProviders";
 
 const Register = () => {
+  const navigate = useNavigate();
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const [openEye, setOpenEye] = useState(false);
   const notify = (statusCode) => {
@@ -45,6 +46,9 @@ const Register = () => {
           updateUserProfile({ displayName, photoURL })
             .then(() => {
               notify(passworstatus);
+              setTimeout(() => {
+                navigate("/");
+              }, 3000);
             })
             .catch((error) => notify(error));
         })

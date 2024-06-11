@@ -3,12 +3,13 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import { MdEmail } from "react-icons/md";
 import { RiEyeCloseFill, RiEyeFill, RiLockPasswordFill } from "react-icons/ri";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
 
 const tostfy = (message) => toast(message);
 
 const Login = () => {
+  const navigate = useNavigate();
   const { signIn, user, loginWithGoogle } = useContext(AuthContext);
 
   const [openEye, setOpenEye] = useState(false);
@@ -30,6 +31,9 @@ const Login = () => {
         {
           user ? tostfy("Already login") : tostfy("Login successful");
         }
+        setTimeout(() => {
+          navigate("/");
+        }, 3000);
       })
       .catch((error) => {
         console.log(error);
@@ -45,6 +49,9 @@ const Login = () => {
         {
           user ? tostfy("Already login") : tostfy("Login successful");
         }
+        setTimeout(() => {
+          navigate("/");
+        }, 3000);
       })
       .catch((error) => {
         console.log(error);
