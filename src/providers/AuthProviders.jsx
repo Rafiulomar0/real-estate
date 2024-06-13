@@ -21,35 +21,43 @@ const auth = getAuth(app);
 
 const AuthProviders = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const createUser = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const updateUserProfile = (updatedInfo) => {
+    setLoading(true);
     return updateProfile(auth.currentUser, updatedInfo);
   };
 
   const signIn = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   const logOut = () => {
+    setLoading(true);
     return signOut(auth);
   };
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (user) => {
+      setLoading(false);
       setUser(user);
     });
     return () => unSubscribe();
   }, []);
 
   const loginWithGoogle = () => {
+    setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
   const loginWithGithub = () => {
+    setLoading(true);
     return signInWithPopup(auth, gitProvider);
   };
 
@@ -62,6 +70,8 @@ const AuthProviders = ({ children }) => {
     logOut,
     loginWithGoogle,
     loginWithGithub,
+    loading,
+    setLoading,
   };
 
   return (

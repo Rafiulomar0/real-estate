@@ -3,7 +3,7 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import { MdEmail } from "react-icons/md";
 import { RiEyeCloseFill, RiEyeFill, RiLockPasswordFill } from "react-icons/ri";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
 import { Helmet } from "react-helmet-async";
 
@@ -11,6 +11,7 @@ const tostfy = (message) => toast(message);
 
 const Login = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { signIn, user, loginWithGoogle, loginWithGithub } =
     useContext(AuthContext);
 
@@ -34,8 +35,8 @@ const Login = () => {
           user ? tostfy("Already login") : tostfy("Login successful");
         }
         setTimeout(() => {
-          navigate("/");
-        }, 3000);
+          navigate(location?.state ? location.state : "/");
+        }, 2000);
       })
       .catch((error) => {
         console.log(error);
@@ -52,7 +53,7 @@ const Login = () => {
           user ? tostfy("Already login") : tostfy("Login successful");
         }
         setTimeout(() => {
-          navigate("/");
+          navigate(location?.state ? location.state : "/");
         }, 3000);
       })
       .catch((error) => {
@@ -68,7 +69,7 @@ const Login = () => {
           user ? tostfy("Already login") : tostfy("Login successful");
         }
         setTimeout(() => {
-          navigate("/");
+          navigate(location?.state ? location.state : "/");
         }, 3000);
       })
       .catch((error) => {

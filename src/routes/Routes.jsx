@@ -6,6 +6,7 @@ import Register from "../layout/Register/Register";
 import ShowLandDetails from "../layout/ShowLandDetails/ShowLandDetails";
 import Error from "../layout/Error/Error";
 import UpdateProfile from "../layout/UpdateProfile/UpdateProfile";
+import PrivateRoutes from "./PrivateRoutes";
 
 const routers = createBrowserRouter([
   {
@@ -27,17 +28,20 @@ const routers = createBrowserRouter([
       },
       {
         path: "/updateProfile",
-        element: <UpdateProfile></UpdateProfile>,
+        element: (
+          <PrivateRoutes>
+            <UpdateProfile></UpdateProfile>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/details/:id",
-        element: <ShowLandDetails></ShowLandDetails>,
-        loader: ({ params }) =>
-          fetch("data.json")
-            .then((res) => res.json())
-            .then((data) =>
-              data.find((item) => item.id === parseInt(params.id))
-            ),
+        element: (
+          <PrivateRoutes>
+            <ShowLandDetails></ShowLandDetails>
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) => fetch("../../public/data.json"),
       },
     ],
   },
