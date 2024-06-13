@@ -41,7 +41,7 @@ const routers = createBrowserRouter([
             <ShowLandDetails></ShowLandDetails>
           </PrivateRoutes>
         ),
-        loader: ({ params }) => fetch("../../public/data.json"),
+        loader: () => fetch("../../public/data.json"),
       },
     ],
   },
