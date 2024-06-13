@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 const LandItem = ({ land }) => {
   const {
     estate_title,
@@ -10,6 +11,7 @@ const LandItem = ({ land }) => {
     location,
     facilities,
     image,
+    id,
   } = land;
 
   return (
@@ -40,7 +42,9 @@ const LandItem = ({ land }) => {
         <span className="text-md">Price: {price} USD</span>
         <div className="divider"></div>
         <div className="card-actions justify-center">
-          <button className="btn btn-primary">View Property</button>
+          <Link to={`/details/${id}`} className="btn btn-primary">
+            View Property
+          </Link>
         </div>
       </div>
     </div>
