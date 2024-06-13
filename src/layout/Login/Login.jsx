@@ -5,6 +5,7 @@ import { MdEmail } from "react-icons/md";
 import { RiEyeCloseFill, RiEyeFill, RiLockPasswordFill } from "react-icons/ri";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
+import { Helmet } from "react-helmet-async";
 
 const tostfy = (message) => toast(message);
 
@@ -77,6 +78,9 @@ const Login = () => {
 
   return (
     <div className="hero min-h-screen bg-base-200">
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
       <div className="hero-content flex flex-col">
         <h2 className="text-4xl">Login Now</h2>
         <div className="shadow-2xl bg-base-100 rounded-2xl">

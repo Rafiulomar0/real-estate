@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useContext, useState } from "react";
 import passValidate from "../../utilities/PasswordValidator";
 import { AuthContext } from "../../providers/AuthProviders";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -60,6 +61,9 @@ const Register = () => {
 
   return (
     <div className="hero min-h-screen bg-base-200">
+      <Helmet>
+        <title>Register</title>
+      </Helmet>
       <div className="hero-content flex flex-col">
         <h2 className="text-4xl">Register Now</h2>
         <div className="shadow-2xl bg-base-100 rounded-2xl">

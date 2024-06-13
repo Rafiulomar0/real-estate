@@ -5,6 +5,7 @@ import Login from "../layout/Login/Login";
 import Register from "../layout/Register/Register";
 import ShowLandDetails from "../layout/ShowLandDetails/ShowLandDetails";
 import Error from "../layout/Error/Error";
+import UpdateProfile from "../layout/UpdateProfile/UpdateProfile";
 
 const routers = createBrowserRouter([
   {
@@ -26,7 +27,7 @@ const routers = createBrowserRouter([
       },
       {
         path: "/updateProfile",
-        element: <div>Update Profile</div>,
+        element: <UpdateProfile></UpdateProfile>,
       },
       {
         path: "/details/:id",
