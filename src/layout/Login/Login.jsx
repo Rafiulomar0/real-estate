@@ -10,7 +10,8 @@ const tostfy = (message) => toast(message);
 
 const Login = () => {
   const navigate = useNavigate();
-  const { signIn, user, loginWithGoogle } = useContext(AuthContext);
+  const { signIn, user, loginWithGoogle, loginWithGithub } =
+    useContext(AuthContext);
 
   const [openEye, setOpenEye] = useState(false);
 
@@ -57,8 +58,21 @@ const Login = () => {
         console.log(error);
       });
   };
+
   const handleLoginWithGithub = () => {
-    console.log("github login");
+    loginWithGithub()
+      .then((result) => {
+        console.log(result.user);
+        {
+          user ? tostfy("Already login") : tostfy("Login successful");
+        }
+        setTimeout(() => {
+          navigate("/");
+        }, 3000);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
