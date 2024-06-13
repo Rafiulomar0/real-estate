@@ -50,7 +50,7 @@ const NavBar = () => {
             {navLinks}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-xl">Dream Land</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
@@ -61,13 +61,15 @@ const NavBar = () => {
           role="button"
           className="btn btn-ghost btn-circle avatar"
         >
-          <div className="w-10 rounded-full flex items-center justify-center mx-auto">
-            {user ? (
-              <img alt="Tailwind CSS Navbar component" src={user.photoURL} />
-            ) : (
+          <div
+            className="w-10 rounded-full flex items-center justify-center mx-auto tooltip tooltip-open tooltip-bottom"
+            data-tip="hello"
+          >
+            {user && (
               <img
                 alt="Tailwind CSS Navbar component"
-                src="https://i.ibb.co/qg30N0c/icons8-avatar.gif"
+                src={user.photoURL}
+                title={user.displayName}
               />
             )}
           </div>
