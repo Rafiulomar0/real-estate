@@ -19,11 +19,8 @@ const PrivateRoutes = ({ children }) => {
   return <Navigate state={location.pathname} to="/login"></Navigate>;
 };
 
-<<<<<<< HEAD
-=======
 PrivateRoutes.proptypes = {
   children: PropTypes.node.isRequired,
 };
 
->>>>>>> 20ff82cb89c17155ed3b28262a24091958f66b27
 export default PrivateRoutes;
