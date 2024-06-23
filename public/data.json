@@ -1,0 +1,79 @@
+[
+  {
+    "estate_title": "Sunset Valley",
+    "id": 1,
+    "segment_name": "Residential",
+    "description": "A beautiful estate with stunning sunset views, perfect for building your dream home.",
+    "price": 350000,
+    "status": "Sale",
+    "area": 2500,
+    "location": "California, USA",
+    "facilities": ["Electricity", "Water Supply", "Sewage System", "Internet"],
+    "image": "https://i.ibb.co/jkFJthp/bailey-anselme-Bkp3g-Lygye-A-unsplash.jpg"
+  },
+  {
+    "estate_title": "Green Meadows",
+    "id": 2,
+    "segment_name": "Agricultural",
+    "description": "Expansive meadows ideal for farming or agricultural development.",
+    "price": 150000,
+    "status": "Sale",
+    "area": 5000,
+    "location": "Texas, USA",
+    "facilities": ["Water Supply", "Irrigation System", "Fencing"],
+    "image": "https://i.ibb.co/CKn2stz/amit-janco-XYRXj7-cv3c-unsplash.jpg"
+  },
+  {
+    "estate_title": "Oceanfront Paradise",
+    "id": 3,
+    "segment_name": "Residential",
+    "description": "Prime oceanfront land with breathtaking views, suitable for luxury villas.",
+    "price": 1200000,
+    "status": "Sale",
+    "area": 3000,
+    "location": "Florida, USA",
+    "facilities": ["Electricity", "Water Supply", "Beach Access", "Security"],
+    "image": "https://i.ibb.co/WgvrVT1/rui-alves-Ny-Pg-PR1j-P5-U-unsplash.jpg"
+  },
+  {
+    "estate_title": "Mountain Retreat",
+    "id": 4,
+    "segment_name": "Residential",
+    "description": "Secluded mountain estate offering peace and tranquility, ideal for a private retreat.",
+    "price": 450000,
+    "status": "Rent",
+    "area": 4000,
+    "location": "Colorado, USA",
+    "facilities": ["Electricity", "Water Supply", "Hiking Trails", "Cabin"],
+    "image": "https://i.ibb.co/CbhGbQh/carla-lipani-jyd-Q4j8uq94-unsplash.jpg"
+  },
+  {
+    "estate_title": "City Hub",
+    "id": 5,
+    "segment_name": "Commercial",
+    "description": "Centrally located land perfect for commercial development, surrounded by business hubs.",
+    "price": 900000,
+    "status": "Sale",
+    "area": 3500,
+    "location": "New York, USA",
+    "facilities": ["Electricity", "Water Supply", "Internet", "Parking"],
+    "image": "https://i.ibb.co/7kmLFQQ/andrew-hall-So9-D3-FXv-Bjw-unsplash.jpg"
+  },
+  {
+    "estate_title": "Riverside Farm",
+    "id": 6,
+    "segment_name": "Agricultural",
+    "description": "Lush riverside land ideal for farming, with access to freshwater sources.",
+    "price": 200000,
+    "status": "Rent",
+    "area": 6000,
+    "location": "Oregon, USA",
+    "facilities": [
+      "Water Supply",
+      "Irrigation System",
+      "Fencing",
+      "Storage Barn"
+    ],
+    "image": "https://i.ibb.co/VWN7fSB/benjamin-cheng-W-9-GAkp-PF9-I-unsplash.jpg"
+  }
+]
