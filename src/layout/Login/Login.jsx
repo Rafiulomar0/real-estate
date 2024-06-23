@@ -29,12 +29,7 @@ const Login = () => {
 
     // signin
     signIn(email, password)
-<<<<<<< HEAD
-      .then((result) => {
-        console.log(result.user);
-=======
       .then(() => {
->>>>>>> 20ff82cb89c17155ed3b28262a24091958f66b27
         {
           user ? tostfy("Already login") : tostfy("Login successful");
         }
@@ -43,25 +38,13 @@ const Login = () => {
         }, 2000);
       })
       .catch((error) => {
-<<<<<<< HEAD
-        console.log(error);
-      });
-
-    console.log(email, password);
-=======
         tostfy(error.message);
       });
->>>>>>> 20ff82cb89c17155ed3b28262a24091958f66b27
   };
 
   const handleLoginWithGoogle = () => {
     loginWithGoogle()
-<<<<<<< HEAD
-      .then((result) => {
-        console.log(result.user);
-=======
       .then(() => {
->>>>>>> 20ff82cb89c17155ed3b28262a24091958f66b27
         {
           user ? tostfy("Already login") : tostfy("Login successful");
         }
@@ -70,22 +53,13 @@ const Login = () => {
         }, 3000);
       })
       .catch((error) => {
-<<<<<<< HEAD
-        console.log(error);
-=======
         tostfy(error.message);
->>>>>>> 20ff82cb89c17155ed3b28262a24091958f66b27
       });
   };
 
   const handleLoginWithGithub = () => {
     loginWithGithub()
-<<<<<<< HEAD
-      .then((result) => {
-        console.log(result.user);
-=======
       .then(() => {
->>>>>>> 20ff82cb89c17155ed3b28262a24091958f66b27
         {
           user ? tostfy("Already login") : tostfy("Login successful");
         }
@@ -94,11 +68,7 @@ const Login = () => {
         }, 3000);
       })
       .catch((error) => {
-<<<<<<< HEAD
-        console.log(error);
-=======
         tostfy(error.message);
->>>>>>> 20ff82cb89c17155ed3b28262a24091958f66b27
       });
   };
 

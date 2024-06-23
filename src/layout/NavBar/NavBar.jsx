@@ -6,15 +6,7 @@ const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
 
   const handleLogout = () => {
-<<<<<<< HEAD
-    logOut()
-      .then(() => console.log("logout"))
-      .catch((error) => {
-        console.log(error);
-      });
-=======
     logOut();
->>>>>>> 20ff82cb89c17155ed3b28262a24091958f66b27
   };
 
   const navLinks = (
@@ -23,12 +15,9 @@ const NavBar = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-<<<<<<< HEAD
-=======
         <NavLink to="/profile">Profile</NavLink>
       </li>
       <li>
->>>>>>> 20ff82cb89c17155ed3b28262a24091958f66b27
         <NavLink to="/updateProfile">Update Profile</NavLink>
       </li>
     </>
