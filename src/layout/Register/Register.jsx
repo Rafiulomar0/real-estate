@@ -42,8 +42,12 @@ const Register = () => {
       e.target.reset();
     } else {
       createUser(email, password)
+<<<<<<< HEAD
         .then((result) => {
           console.log(result.user);
+=======
+        .then(() => {
+>>>>>>> 20ff82cb89c17155ed3b28262a24091958f66b27
           updateUserProfile({ displayName, photoURL })
             .then(() => {
               notify(passworstatus);
@@ -54,7 +58,11 @@ const Register = () => {
             .catch((error) => notify(error));
         })
         .catch((error) => {
+<<<<<<< HEAD
           notify(error);
+=======
+          notify(error.message);
+>>>>>>> 20ff82cb89c17155ed3b28262a24091958f66b27
         });
     }
   };

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # Dream Land
 
@@ -32,3 +33,6 @@ A Website for browsing your dream propery to buy.
 - react-router-dom
 - react-toastify
 - swiper
+=======
+# Real Estate
+>>>>>>> 20ff82cb89c17155ed3b28262a24091958f66b27
